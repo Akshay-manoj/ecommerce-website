@@ -1,9 +1,3 @@
---
--- Database: `ecommerce_backend`
---
-
-CREATE DATABASE ecommerce_backend;
-
 -- --------------------------------------------------------
 
 --
