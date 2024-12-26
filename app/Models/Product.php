@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
@@ -13,6 +14,18 @@ class Product extends Model
     protected $fillable = [
         'name', 'slug', 'description', 'price', 'stock', 'category_id', 'status',
     ];
+
+    // protected $appends = [
+    //     'current_stock'
+    // ];
+
+    // public function currentStock(): Attribute
+    // {
+    //     return Attribute::make(
+    //         get: fn () => ,
+    //         set: fn ($value) => ['birth_date' => now()->subYears($value)]
+    //     );
+    // }
 
     // The category that the product belongs to
     public function category()

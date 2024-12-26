@@ -2,15 +2,12 @@
 
 namespace App\Http\Middleware;
 
-use App\Traits\RespondWithJson;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class UserMiddleware
+class GuestMiddleware
 {
-    use RespondWithJson;
-
     /**
      * Handle an incoming request.
      *
@@ -18,12 +15,6 @@ class UserMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        $user = auth()->user();
-        if (! $user || $user->role !== 'user') {
-            return $this->error('Unauthorized.', Response::HTTP_UNAUTHORIZED);
-        }
-        \Log::info($user);
-
         return $next($request);
     }
 }
